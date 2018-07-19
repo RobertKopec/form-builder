@@ -1,0 +1,32 @@
+@import '../constants';
+
+.app-wrapper {
+	background: $anthracite;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.app-container {
+	background: $cloud;
+	width: $width;
+	height: $height;
+	padding: $padding;
+	border-radius: $radius;
+	box-shadow: $box-shadow;
+
+	@mixin mobile-dimensions() {
+		width: $mobile-width;
+		height: $mobile-height;
+	}
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		@include mobile-dimensions();
+	}
+
+	@media screen and (max-height: $mobile-breakpoint) {
+		@include mobile-dimensions();
+	}
+}

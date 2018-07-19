@@ -1,0 +1,77 @@
+<div class="group-container">
+	<div class="input-container">
+		<div class="condition-container" *ngIf="showCondition">
+
+				<label for="condition">Condition:</label>
+				<app-select-component
+					[value]="group.condition?.type"
+					(update)="updateCondition($event, 'type')"
+					[options]="getFirstSelectOptions()"
+					id="condition">
+				</app-select-component>
+
+				<label for="value">Value:</label>
+				<app-select-component
+					*ngIf="selectionType === 'boolean'"
+					[value]="group.condition?.value"
+					(update)="updateCondition($event, 'value')"
+					[options]="[
+					{text: 'Yes', value: 'yes'},
+					{text: 'No', value: 'no'}
+				]"
+					id="value">
+				</app-select-component>
+				<app-input-component
+					*ngIf="selectionType !== 'boolean'"
+					[type]="selectionType == 'string' ? 'text' : 'number'"
+					[value]="group.condition?.value"
+					(update)="updateCondition($event, 'value')"
+					id="value">
+				</app-input-component>
+		</div>
+
+		<label for="question">Question:</label>
+		<app-input-component
+			[value]="group.question"
+			(update)="updateValue($event, 'question')"
+			id="question">
+		</app-input-component>
+
+		<label for="Type">Type:</label>
+		<app-select-component
+			(update)="updateValue($event, 'selection')"
+			[value]="group.selection"
+			[options]="[
+				{text: 'Text', value: 'string'},
+				{text: 'Number', value: 'number'},
+				{text: 'Yes / No', value: 'boolean'}
+			]"
+			id="type">
+		</app-select-component>
+	</div>
+
+	<div class="actions-container">
+		<app-button-component
+			(clicked)="delete()"
+			classes="destructive"
+			text="Delete">
+		</app-button-component>
+
+		<app-button-component
+			(clicked)="addSubInput()"
+			text="Add SubInput">
+		</app-button-component>
+	</div>
+</div>
+
+<div class="indented-groups" *ngIf="group.subInputs">
+	<app-group-component
+		*ngFor="let subInput of group.subInputs; index as idx"
+		(update)="onUpdate()"
+		(deletion)="onDeletion($event)"
+		[index]="idx"
+		[selectionType]="group.selection"
+		[showCondition]="true"
+		[group]="subInput">
+	</app-group-component>
+</div>

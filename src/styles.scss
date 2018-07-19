@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+@import '~normalize.css';
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+	font-size: 13px;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}

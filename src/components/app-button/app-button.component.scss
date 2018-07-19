@@ -1,0 +1,30 @@
+@import '../../constants';
+
+$button-padding: 7px 10px 6px;
+
+.button-container {
+	display: inline-block;
+	margin: 10px 0;
+
+	.button {
+		background: rgba($blue, .5);
+		border-radius: $radius;
+		box-shadow: $box-shadow-light;
+		padding: $button-padding;
+		cursor: pointer;
+		transition: background .2s;
+		color: $white;
+
+		&.destructive {
+			background: rgba($red, .5);
+
+			&:hover {
+				background: rgba($red, .25);
+			}
+		}
+
+		&:hover {
+			background: rgba($blue, .25);
+		}
+	}
+}

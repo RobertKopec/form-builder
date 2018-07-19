@@ -1,0 +1,49 @@
+@import '../../constants';
+
+$indent-margin: 4vw;
+
+$group-width: $width * .3;
+$group-width-mobile: $mobile-width * .5;
+
+
+:host {
+	display: block;
+}
+
+.group-container {
+	padding: $padding;
+	width: $group-width;
+	border-radius: $radius;
+	background: rgba($blue, .1);
+	box-shadow: $box-shadow-light;
+	margin-bottom: $padding;
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		width: $group-width-mobile;
+	}
+}
+
+.actions-container {
+	display: flex;
+	flex-direction: row-reverse;
+	margin-top: 10px;
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		flex-direction: column-reverse;
+		align-items: flex-end;
+	}
+
+	app-button-component:not(:first-of-type) {
+		margin-right: 10px;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			margin-right: 0;
+		}
+	}
+}
+
+.indented-groups {
+	margin-left: $indent-margin;
+}
+
+

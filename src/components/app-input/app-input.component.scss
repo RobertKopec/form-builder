@@ -1,0 +1,10 @@
+@import '../../constants';
+
+.input {
+	padding: $input-padding;
+	border-radius: $radius;
+	outline: none;
+	border: none;
+	width: 100%;
+	margin: $margin;
+}
