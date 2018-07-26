@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
 	selector: 'app-input-component',
 	templateUrl: 'app-input.component.html',
 	styleUrls: ['app-input.component.scss']
 })
+
 export class AppInputComponent implements OnInit {
 	@Input() value: string;
 	@Input() type: string;

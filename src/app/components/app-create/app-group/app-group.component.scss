@@ -1,10 +1,9 @@
-@import '../../constants';
+@import '../../../../constants';
 
 $indent-margin: 4vw;
 
 $group-width: $width * .3;
 $group-width-mobile: $mobile-width * .5;
-
 
 :host {
 	display: block;
@@ -45,5 +44,3 @@ $group-width-mobile: $mobile-width * .5;
 .indented-groups {
 	margin-left: $indent-margin;
 }
-
-

@@ -1,8 +1,9 @@
-@import '../../constants';
+@import '../../../../../constants';
 
-.input {
+.select {
 	padding: $input-padding;
 	border-radius: $radius;
+	background: $white;
 	outline: none;
 	border: none;
 	width: 100%;

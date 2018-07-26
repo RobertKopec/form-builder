@@ -1,4 +1,4 @@
-import { StructureGroup } from './structure-group.model';
+import {StructureGroup} from './structure-group.model';
 
 export interface IStructureStore {
 	branches: StructureGroup[];
@@ -11,7 +11,7 @@ export class Structure {
 		this.internalStore = store || { branches: [] };
 	}
 
-	get Branches(): StructureGroup[] {
+	get branches(): StructureGroup[] {
 		return this.internalStore.branches;
 	}
 

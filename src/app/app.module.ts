@@ -4,24 +4,36 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { StorageService } from '../services/storage.service';
-import { AppBuilderComponent } from '../components/app-builder/app-builder.component';
-import { AppGroupComponent } from '../components/app-group/app-group.component';
-import { AppButtonComponent } from '../components/app-button/app-button.component';
-import { AppInputComponent } from '../components/app-input/app-input.component';
-import { AppSelectComponent } from '../components/app-select/app-select.component';
+import { AppCreateComponent } from './components/app-create/app-create.component';
+import { AppGroupComponent } from './components/app-create/app-group/app-group.component';
+import { AppButtonComponent } from './components/app-create/app-group/app-button/app-button.component';
+import { AppInputComponent } from './components/app-create/app-group/app-input/app-input.component';
+import { AppSelectComponent } from './components/app-create/app-group/app-select/app-select.component';
+import {AppNavbarComponent} from './components/app-navbar/app-navbar.component';
+import {AppRoutingModule} from './app-routing.module';
+import { AppPreviewComponent } from './components/app-preview/app-preview.component';
+import { AppExportComponent } from './components/app-export/app-export.component';
+import { AppPreviewGroupComponent } from './components/app-preview/app-preview-group/app-preview-group.component';
+import { AppPreviewInputComponent } from './components/app-preview/app-preview-group/app-preview-input/app-preview-input.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		AppBuilderComponent,
+		AppCreateComponent,
 		AppGroupComponent,
 		AppButtonComponent,
 		AppInputComponent,
-		AppSelectComponent
+		AppSelectComponent,
+		AppNavbarComponent,
+		AppPreviewComponent,
+		AppExportComponent,
+		AppPreviewGroupComponent,
+		AppPreviewInputComponent
 	],
 	imports: [
 		BrowserModule,
-		FormsModule
+		FormsModule,
+		AppRoutingModule
 	],
 	providers: [
 		StorageService

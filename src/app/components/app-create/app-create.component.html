@@ -1,19 +1,15 @@
-<h1>Form Builder</h1>
-
 <div class="groups">
 	<h2 *ngIf="!getBranches().length">Add some inputs!</h2>
 
 	<app-group-component
-		*ngFor="let branch of getBranches();"
+		*ngFor="let branch of getBranches(); index as idx"
 		(deletion)="onDeletion($event)"
 		(update)="onUpdate()"
 		[showCondition]="false"
-		[index]="index"
+		[index]="idx"
 		[group]="branch">
 	</app-group-component>
-</div>
 
-<div class="fixed-buttons">
 	<app-button-component
 		(clicked)="addBranch()"
 		text="Add Input">

@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { StructureGroup } from '../../models/structure-group.model';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {StructureGroup} from '../../../../models/structure-group.model';
 
 @Component({
 	selector: 'app-group-component',
@@ -20,6 +20,7 @@ export class AppGroupComponent {
 
 	onDeletion(index: number): void {
 		this.group.subInputs.splice(index, 1);
+		this.update.emit();
 	}
 
 	addSubInput(): void {
@@ -30,17 +31,15 @@ export class AppGroupComponent {
 
 	updateValue(value: any, property: string) {
 		this.group[property] = value;
-
 		this.onUpdate();
 	}
 
-	updateCondition(value: any, property: string) {
+	updateCondition(value: string, property: string) {
 		if (!this.group.condition) {
 			this.group.condition = { type: '', value: '' };
 		}
 
 		this.group.condition[property] = value;
-
 		this.onUpdate();
 	}
 
@@ -48,18 +47,16 @@ export class AppGroupComponent {
 		this.deletion.emit(this.index);
 	}
 
-	getFirstSelectOptions(): any[] {
+	getFirstSelectOptions(): object {
 		switch (this.selectionType) {
-			case 'string':
-				return [{text: 'Equals', value: 'equals'}];
-			case 'boolean':
-				return [{text: 'Equals', value: 'equals'}];
-			default:
+			case 'number':
 				return [
 					{text: 'Equals', value: 'equals'},
 					{text: 'Greater than', value: 'greater'},
 					{text: 'Less than', value: 'less'}
 				];
+			default:
+				return [{text: 'Equals', value: 'equals'}]	;
 		}
 	}
 }

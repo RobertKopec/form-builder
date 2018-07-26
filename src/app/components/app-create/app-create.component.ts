@@ -1,14 +1,14 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { Structure } from '../../models/structure.model';
-import { StorageService } from '../../services/storage.service';
-import { StructureGroup } from '../../models/structure-group.model';
+import {Component, OnInit} from '@angular/core';
+import {Structure} from '../../../models/structure.model';
+import {StorageService} from '../../../services/storage.service';
+import {StructureGroup} from '../../../models/structure-group.model';
 
 @Component({
-	selector: 'app-builder-component',
-	templateUrl: 'app-builder.component.html',
-	styleUrls: ['app-builder.component.scss']
+	selector: 'app-create-component',
+	templateUrl: 'app-create.component.html',
+	styleUrls: ['app-create.component.scss']
 })
-export class AppBuilderComponent implements OnInit {
+export class AppCreateComponent implements OnInit {
 	private structure: Structure;
 
 	constructor(
@@ -21,7 +21,6 @@ export class AppBuilderComponent implements OnInit {
 
 	onDeletion(index: number): void {
 		this.structure.removeBranch(index);
-
 		this.storeStructure();
 	}
 
@@ -30,12 +29,11 @@ export class AppBuilderComponent implements OnInit {
 	}
 
 	getBranches(): StructureGroup[] {
-		return this.structure.Branches;
+		return this.structure.branches;
 	}
 
 	addBranch(): void {
 		this.structure.addBranch();
-
 		this.storeStructure();
 	}
 
