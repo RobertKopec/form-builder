@@ -1,0 +1,9 @@
+<div class="preview-container">
+	<h2 *ngIf="!getBranches().length">Create form first!</h2>
+	<app-preview-group
+		*ngFor="let branch of getBranches(); index as idx"
+		[group]="branch"
+		[selectionType]="branch.selection"
+		[name]="idx + 'parent'">
+	</app-preview-group>
+</div>

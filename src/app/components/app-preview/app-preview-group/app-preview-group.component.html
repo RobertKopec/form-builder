@@ -1,0 +1,43 @@
+<div class="preview-group-container">
+	<p class="question" >{{group.question}}</p>
+
+	<app-preview-input
+		*ngIf="selectionType !== 'boolean'"
+		[type]="selectionType === 'number' ? 'number' : 'text'"
+		(changed)="updateCondition($event)"
+		[class]="'input'"
+		[name]="name">
+	</app-preview-input>
+
+	<div class="radio-group" *ngIf="selectionType === 'boolean'">
+		<label for="yes">Yes</label>
+		<app-preview-input
+			id="yes"
+			[type]="'radio'"
+			(changed)="updateCondition('yes')"
+			[name]="name">
+		</app-preview-input>
+
+		<label for="no">No</label>
+		<app-preview-input
+			id="no"
+			[type]="'radio'"
+			(changed)="updateCondition('no')"
+			[name]="name">
+		</app-preview-input>
+	</div>
+</div>
+
+<div *ngIf="group.subInputs">
+	<div *ngFor="let subInput of group.subInputs; index as idx">
+		<div *ngIf="checkCondition(subInput.condition.value, subInput.condition.type)">
+			<div class="indented-groups">
+				<app-preview-group
+					[selectionType]="subInput.selection"
+					[group]="subInput"
+					[name]= "generatedName">
+				</app-preview-group>
+			</div>
+		</div>
+	</div>
+</div>

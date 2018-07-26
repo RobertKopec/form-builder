@@ -1,0 +1,12 @@
+@import "../../../constants";
+
+	p{
+		padding: $padding;
+		border-radius: $radius;
+		background: rgba($blue, .1);
+		box-shadow: $box-shadow-light;
+		width: $width * .95;
+		height: $height * .8;
+		margin: auto;
+		overflow: auto;
+	}

@@ -1,0 +1,26 @@
+@import "../../../constants";
+
+$navbar-margin: 15px;
+$navbar-padding: $padding* .3;
+
+.navbar-container {
+	display: flex;
+}
+
+ h1{
+		text-align: center;
+		flex-grow: 0.09;
+		padding: $navbar-padding;
+	}
+
+.links-container{
+	display: inline-flex;
+	padding: $padding;
+
+	a{
+		margin: $navbar-margin;
+		font-size: larger;
+		text-decoration: none;
+		color: $black;
+	}
+}
